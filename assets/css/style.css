@@ -1034,3 +1034,14 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Icon panel for project cards without a screenshot */
+.portfolio_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+  color: #fff;
+  font-size: 4rem;
+}
