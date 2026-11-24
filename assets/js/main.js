@@ -75,30 +75,23 @@ skillHeaderArr.forEach((element, idx) => {
   });
 });
 
-// QUALIFICATION TABS
-let education = document.getElementById("education");
-let work = document.getElementById("work");
-let educationheader = document.getElementById("educationheader");
-let workheader = document.getElementById("workheader");
-workheader.style.color = "var(--first-colour)";
+// QUALIFICATION TABS (Work is shown by default)
+const qualificationTabs = [
+  { header: document.getElementById("workheader"), content: document.getElementById("work") },
+  { header: document.getElementById("educationheader"), content: document.getElementById("education") },
+];
 
-educationheader.addEventListener("click", () => {
-  let condition1 = work.classList.contains("qualification-inactive");
-  if (!condition1) {
-    education.classList.remove("qualification-inactive");
-    work.classList.add("qualification-inactive");
-    workheader.style.color = "var(--text-colour)";
-    educationheader.style.color = "var(--first-colour)";
-  }
-});
-workheader.addEventListener("click", () => {
-  let condition2 = education.classList.contains("qualification-inactive");
-  if (!condition2) {
-    work.classList.remove("qualification-inactive");
-    education.classList.add("qualification-inactive");
-    educationheader.style.color = "var(--text-colour)";
-    workheader.style.color = "var(--first-colour)";
-  }
+function showQualification(active) {
+  qualificationTabs.forEach((tab) => {
+    const isActive = tab === active;
+    tab.header.classList.toggle("qualification_button--active", isActive);
+    tab.content.classList.toggle("qualification-inactive", !isActive);
+    tab.content.classList.toggle("qualification_active", isActive);
+  });
+}
+
+qualificationTabs.forEach((tab) => {
+  tab.header.addEventListener("click", () => showQualification(tab));
 });
 
 // PORTFOLIO SWIPER

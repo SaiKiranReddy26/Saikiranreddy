@@ -510,8 +510,13 @@ button {
 .qualification_button {
   font-size: var(--h3-font-size);
   font-weight: var(--font-medium);
-  color: var(--first-color);
+  color: var(--text-color);
   cursor: pointer;
+  transition: color 0.3s;
+}
+
+.qualification_button--active {
+  color: var(--first-color);
 }
 
 .qualification_button:hover {
@@ -1044,4 +1049,97 @@ button {
   background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
   color: #fff;
   font-size: 4rem;
+}
+
+/* ===== Footer refresh ===== */
+.footer_container {
+  align-items: center;
+  row-gap: 2rem;
+}
+
+.footer_title {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold, 600);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.footer_subtitle {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.16);
+  font-weight: var(--font-medium);
+  letter-spacing: 0.02em;
+}
+
+.footer_links {
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.75rem;
+}
+
+.footer_link {
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.footer_link:hover {
+  opacity: 1;
+}
+
+.footer_socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer_social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.16);
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.footer_social:hover {
+  background-color: #fff;
+  color: var(--first-color);
+  transform: translateY(-3px);
+}
+
+.footer_copy {
+  max-width: 768px;
+  margin: 2.5rem 1.5rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media screen and (min-width: 768px) {
+  .footer_container {
+    grid-template-columns: auto 1fr auto;
+    column-gap: 2rem;
+  }
+
+  .footer_links {
+    justify-content: center;
+  }
+
+  .footer_copy {
+    margin: 3rem auto 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .footer_copy {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
